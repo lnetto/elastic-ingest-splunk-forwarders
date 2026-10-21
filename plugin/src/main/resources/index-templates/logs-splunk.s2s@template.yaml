@@ -1,0 +1,19 @@
+version: ${splunk_forwarders.template.version}
+index_patterns: ["logs-splunk.s2s-*"]
+priority: 141
+data_stream: {}
+allow_auto_create: true
+_meta:
+  description: Data streams of the ingest-splunk-forwarders plugin's default target. Put your own settings and mappings in the logs-splunk.s2s@custom component template, your processors in the logs-splunk.s2s@custom ingest pipeline.
+  managed: true
+composed_of:
+  - logs@mappings
+  - logs@settings
+  - logs-splunk.s2s@mappings
+  - logs-splunk.s2s@settings
+  - logs@custom
+  - logs-splunk.s2s@custom
+  - ecs@mappings
+ignore_missing_component_templates:
+  - logs@custom
+  - logs-splunk.s2s@custom
